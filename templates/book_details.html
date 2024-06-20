@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Include head contents here (like title, meta tags, etc.) -->
+</head>
+<body>
+  <h1>{{ book.title }}</h1>
+  <p>{{ book.summary }}</p>
+  <p>Author: {{ book.author }}</p>
+  <p>Genres: {{ ', '.join(book.genres) }}</p> <!-- If genres is a list -->
+  <!-- Display the pie chart -->
+  <img src="data:image/png;base64,{{ pie_chart_url }}" alt="Sentiment Pie Chart">
+  <!-- Additional book details can be added here -->
+</body>
+</html>

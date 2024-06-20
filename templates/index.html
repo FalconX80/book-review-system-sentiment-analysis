@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<title>ReadersRealm</title>
+</head>
+<body>
+
+<div class="navbar">
+  <div class="navbar-logo">ReadersRealm</div>
+  <a href="{{ url_for('index') }}">Home</a>
+  <a href="#mycollection">My Collection</a>
+  <div class="dropdown">
+    <button class="dropbtn">Discover</button>
+    <div class="dropdown-content">
+      <a href="#">Recommendations</a>
+      <a href="#" onclick="showAllBooks()">Book Lists</a>
+
+      <a href="#">New releases</a>
+    </div>
+  </div>
+  <div class="dropdown">
+    <button class="dropbtn">Community</button>
+    <div class="dropdown-content">
+      <a href="#">Friends</a>
+      <a href="#">Groups</a>
+      <a href="#">Discussions</a>
+    </div>
+  </div>
+  <a href="#contact">Contact</a>
+  <div class="navbar-right">
+   
+    <a href="#notifications"><i class="icon-bar">🔔</i></a>
+    <a href="#messages"><i class="icon-bar">✉️</i></a>
+    <a href="#profile"><i class="icon-bar">👤</i></a>
+    
+  </div>
+</div>
+
+<div class="genre-section">
+  <div class="genre-item" onclick="filterByGenre('Fiction')">Fiction</div>
+  <div class="genre-item" onclick="filterByGenre('Non-Fiction')">Non-Fiction</div>
+  <div class="genre-item" onclick="filterByGenre('Mystery')">Mystery</div>
+  <div class="genre-item" onclick="filterByGenre('Science Fiction')">Science Fiction</div>
+  <div class="genre-item" onclick="filterByGenre('Fantasy')">Fantasy</div>
+  <div class="genre-item" onclick="filterByGenre('Biography')">Biography</div>
+  <div class="genre-item" onclick="filterByGenre('Study Books')">Study Books</div>
+  <div class="genre-item" onclick="filterByGenre('History')">History</div>
+  <!-- Repeat for other genres -->
+</div>
+
+
+<div class="sidebar">
+  <h2>CURRENTLY READING</h2>
+  <p>What are you reading?</p>
+  <div class="search-container">
+    <input type="text" placeholder="Search books">
+    <button type="button" onclick="searchBook()">🔍</button>
+</div>
+  <a href="#">Recommendations</a>
+  <a href="#">General update</a>
+</div>
+<div class="main-content">
+  
+  <div id="dynamic-content">
+    <h2>Recently Updated</h2>
+    <hr>
+  <div class="recently-updated">
+    <!-- Each book has an image and a clickable title that calls the JavaScript function -->
+
+    <!-- Book 1 -->
+    <div class="book">
+      <img src="{{ url_for('static', filename='book img/1984.jpg') }}" alt="1984">
+      <div class="book-title" onclick="getBookDetails('1984')">1984</div>
+    </div>
+    
+    <!-- Book 2 -->
+    <div class="book">
+      <img src="{{ url_for('static', filename='book img/animal farm.jpg') }}" alt="Animal Farm">
+      <div class="book-title" onclick="getBookDetails('Animal Farm')">Animal Farm</div>
+    </div>
+    
+    <!-- Book 3 -->
+    <div class="book">
+      <img src="{{ url_for('static', filename='book img/harry potter and the philosophers stone.jpg') }}" alt="Harry Potter and the Philosopher's Stone">
+      <div class="book-title" onclick="getBookDetails('Harry Potter and the Philosophers Stone')">Harry Potter and the Philosopher's Stone</div>
+    </div>
+    
+    <!-- Book 4 -->
+    <div class="book">
+      <img src="{{ url_for('static', filename='book img/pride and prejudice.jpg') }}" alt="Pride and Prejudice">
+      <div class="book-title" onclick="getBookDetails('Pride and Prejudice')">Pride and Prejudice</div>
+    </div>
+    
+    <!-- Book 5 -->
+    <div class="book">
+      <img src="{{ url_for('static', filename='book img/the book thief.jpg') }}" alt="The Book Thief">
+      <div class="book-title" onclick="getBookDetails('The Book Thief')">The Book Thief</div>
+    </div>
+    
+    <!-- Book 6 -->
+    <div class="book">
+      <img src="{{ url_for('static', filename='book img/the catcher in the rye.jpg') }}" alt="The Catcher in the Rye">
+      <div class="book-title" onclick="getBookDetails('The Catcher in the Rye')">The Catcher in the Rye</div>
+    </div>
+    
+    <!-- Book 7 -->
+    <div class="book">
+      <img src="{{ url_for('static', filename='book img/the chronicles of narnia.jpg') }}" alt="The Chronicles of Narnia">
+      <div class="book-title" onclick="getBookDetails('The Chronicles of Narnia')">The Chronicles of Narnia</div>
+    </div>
+    
+    <!-- Book 8 -->
+    <div class="book">
+      <img src="{{ url_for('static', filename='book img/the diary of a young girl.jpg') }}" alt="The Diary of a Young Girl">
+      <div class="book-title" onclick="getBookDetails('The Diary of a Young Girl')">The Diary of a Young Girl</div>
+    </div>
+    
+    <!-- Book 9 -->
+    <div class="book">
+      <img src="{{ url_for('static', filename='book img/the little prince.jpg') }}" alt="The Little Prince">
+      <div class="book-title" onclick="getBookDetails('The Little Prince')">The Little Prince</div>
+    </div>
+    
+    <!-- Book 10 -->
+    <div class="book">
+      <img src="{{ url_for('static', filename='book img/the lord of the rings.jpg') }}" alt="The Lord of the Rings">
+      <div class="book-title" onclick="getBookDetails('The Lord of the Rings')">The Lord of the Rings</div>
+    </div>
+    
+    <!-- Book 11 -->
+    <div class="book">
+      <img src="{{ url_for('static', filename='book img/romeo and juliet.jpg') }}" alt="Romeo and Juliet">
+      <div class="book-title" onclick="getBookDetails('Romeo and Juliet')">Romeo and Juliet</div>
+    </div>
+    
+    <!-- Book 12 -->
+    <div class="book">
+      <img src="{{ url_for('static', filename='book img/to kill a mockingbird.jpg') }}" alt="To Kill a Mockingbird">
+      <div class="book-title" onclick="getBookDetails('To Kill a Mockingbird')">To Kill a Mockingbird</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="footer">
+    <h2>COMPANY</h2>
+    <ul>
+      <li><a href="#">About us</a></li>
+      <li><a href="#">Careers</a></li>
+      <!-- ... (more list items) ... -->
+    </ul>
+    <h2>WORK WITH US</h2>
+    <ul>
+      <li><a href="#">Authors</a></li>
+      <li><a href="#">Advertise</a></li>
+      <!-- ... (more list items) ... -->
+    </ul>
+    <h2>CONNECT</h2>
+    <div class="social-icons">
+      <!-- ... (social icons links) ... -->
+    </div>
+    <!-- ... (Additional sections as needed) ... -->
+</div>
+  
+<script>
+  let originalDynamicContent = '';
+
+window.onload = function() {
+    const dynamicContent = document.getElementById('dynamic-content');
+    if (dynamicContent) {
+        originalDynamicContent = dynamicContent.innerHTML;
+    }
+};
+function showAllBooks() {
+  fetch('/all_books')
+      .then(response => response.json())
+      .then(books => {
+          const dynamicContent = document.getElementById('dynamic-content');
+          let booksHtml = '<h2>Book Lists</h2> <hr>';
+          booksHtml += books.map(book => 
+              `<div class="book">
+                <img src="/static/book img/${book.image_url}" alt="${book.book_name}">
+                <div class="book-title" onclick="getBookDetails('${book.book_name}')">${book.book_name}</div>
+            </div>`
+          ).join('');
+
+          dynamicContent.innerHTML = booksHtml;
+      })
+      .catch(error => console.error('Error:', error));
+}
+
+
+  function filterByGenre(genre) {
+    fetch('/filter_genre/' + encodeURIComponent(genre))
+        .then(response => response.json())
+        .then(data => {
+            displayBooks(data.books); // Function to display the books
+        })
+        .catch(error => console.error('Error:', error));
+}
+
+function displayBooks(books) {
+  const dynamicContent = document.getElementById('dynamic-content');
+  let booksHtml = books.map(book => 
+      `<div class="book">
+          <img src="/static/book img/${book.image_url}" alt="${book.title}">
+          <div class="book-title" onclick="getBookDetails('${book.title}')">${book.title}</div>
+      </div>`
+  ).join('');
+
+  // Add a back button at the beginning
+  booksHtml = `<button onclick="goBack()">Back</button>` + booksHtml;
+
+  dynamicContent.innerHTML = booksHtml;
+}
+
+  function searchBook() {
+    const searchQuery = document.querySelector('.search-container input[type=text]').value;
+    fetch('/search/' + encodeURIComponent(searchQuery))
+        .then(response => response.json())
+        .then(data => {
+            // Use the existing function to display the book details
+            displayBookDetails(data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+}
+function displayBookDetails(data) {
+  
+        const dynamicContent = document.getElementById('dynamic-content');
+        if (!dynamicContent) {
+          console.error('Dynamic content element not found');
+          return;
+      }
+
+      if (!originalDynamicContent) {
+          originalDynamicContent = dynamicContent.innerHTML;
+      }
+
+      dynamicContent.innerHTML = `
+    <button onclick="goBack()">Back</button>
+    <h2>${data.title}</h2>
+    <p><strong>Summary:</strong> ${data.summary}</p>
+    <p><strong>Author:</strong> ${data.author}</p>
+    <p><strong>Genres:</strong> ${data.genres.join(', ')}</p>
+
+    <div class="detail-flex-container">
+        <div class="pie-chart">
+            <img src="data:image/png;base64,${data.pie_chart_url}" alt="Sentiment Pie Chart" style="width: 300px; height: auto;">
+        </div>
+        <div class="review-section">
+            <h3>Add a Review:</h3>
+            <form id="review-form">
+                <textarea id="review-content" placeholder="Enter your review here"></textarea>
+                <button type="submit">Submit Review</button>
+            </form>
+        </div>
+    </div>
+`;
+
+  
+  // Add an event listener for the form submission
+  document.getElementById('review-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      submitReview(data.title);
+  });
+  
+    }
+
+  function getBookDetails(bookTitle) {
+      const dynamicContent = document.getElementById('dynamic-content');
+
+      if (!dynamicContent) {
+          console.error('Dynamic content element not found');
+          return;
+      }
+
+      if (!originalDynamicContent) {
+          originalDynamicContent = dynamicContent.innerHTML;
+      }
+
+      fetch('/book/' + encodeURIComponent(bookTitle))
+          .then(response => response.json())
+          .then(data => {
+              if (data.error) {
+                  console.error('Error:', data.error);
+                  return;
+              }
+
+              dynamicContent.innerHTML = `
+    <button onclick="goBack()">Back</button>
+    <h2>${data.title}</h2>
+    <p><strong>Summary:</strong> ${data.summary}</p>
+    <p><strong>Author:</strong> ${data.author}</p>
+    <p><strong>Genres:</strong> ${data.genres.join(', ')}</p>
+
+    <div class="detail-flex-container">
+        <div class="pie-chart">
+            <img src="data:image/png;base64,${data.pie_chart_url}" alt="Sentiment Pie Chart" style="width: 300px; height: auto;">
+        </div>
+        <div class="review-section">
+            <h3>Add a Review:</h3>
+            <form id="review-form">
+                <textarea id="review-content" placeholder="Enter your review here"></textarea>
+                <button type="submit">Submit Review</button>
+            </form>
+        </div>
+    </div>
+`;
+
+          
+          // Add an event listener for the form submission
+          document.getElementById('review-form').addEventListener('submit', function(e) {
+              e.preventDefault();
+              submitReview(data.title);
+          });
+          
+          })
+          .catch(error => {
+              console.error('Error:', error);
+          });
+  }
+  function submitReview(bookTitle) {
+    const reviewContent = document.getElementById('review-content').value;
+    fetch('/add_review/' + encodeURIComponent(bookTitle), {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: 'review=' + encodeURIComponent(reviewContent)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.error) {
+            console.error('Error:', data.error);
+            // Handle error
+        } else {
+            // Handle success - maybe clear the form or give a success message
+            alert('Review added successfully');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+
+
+  function goBack() {
+      const dynamicContent = document.getElementById('dynamic-content');
+      if (dynamicContent) {
+          dynamicContent.innerHTML = originalDynamicContent;
+      }
+  }
+</script>
+
+
+    
+    
+</body>
+</html>
